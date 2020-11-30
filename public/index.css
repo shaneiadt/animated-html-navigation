@@ -29,6 +29,17 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
+  transform: translateX(-100vw);
+}
+
+.overlay-slide-right {
+  transition: all 0.4s ease-in-out;
+  transform: translateX(0);
+}
+
+.overlay-slide-left {
+  transition: all 0.8s ease-in-out;
+  transform: translateX(-100vw);
 }
 
 nav,
@@ -58,6 +69,7 @@ nav li a {
   letter-spacing: 4px;
   text-decoration: none;
   display: block;
+  height: 100%;
   text-align: center;
   transition: transform 250ms;
 }
@@ -72,7 +84,7 @@ nav li a::before {
   height: 3px;
   background-color: #fff;
   position: absolute;
-  top: 47.5%;
+  top: 0;
   left: 0;
 }
 
