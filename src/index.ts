@@ -12,6 +12,8 @@ enum SLIDE_DIRECTION {
 };
 
 function slide(direction: SLIDE_DIRECTION): void {
+    overlay?.classList.replace(`overlay-slide-${direction === SLIDE_DIRECTION.forward ? 'left' : 'right'}`, `overlay-slide-${direction === SLIDE_DIRECTION.forward ? 'right' : 'left'}`);
+
     const remove = direction === SLIDE_DIRECTION.forward ? 'out' : 'in';
     const add = direction === SLIDE_DIRECTION.forward ? 'in' : 'out';
 
@@ -26,14 +28,8 @@ function toggleNav() {
     overlay?.classList.toggle('overlay-active');
 
     if (overlay?.classList.contains('overlay-active')) {
-        overlay.classList.add('overlay-slide-right');
-        overlay.classList.remove('overlay-slide-left');
-
         slide(SLIDE_DIRECTION.forward);
     } else {
-        overlay?.classList.add('overlay-slide-left');
-        overlay?.classList.remove('overlay-slide-right');
-
         slide(SLIDE_DIRECTION.backward);
     }
 }
